@@ -1,39 +1,41 @@
 import { useState } from "react";
 
+function CocktailsPage() {
+  const [cocktails, setCocktails] = useState(null);
 
-// Pour la fonction anonyme avec async : la fonction va exécuter le même code que le précédent mais sans les .then (on en avait 2, on peut en avoir
-// beaucoup plus). De plus la lecture est plus claire et le code simplifié.
-// On se sert d'une fonction anonyme qui s'auto-invoque : Elle reste anonyme car aucun nom et s'invoque avec les () de la fin.
-// On aurait pu l'appeler mais préciser du coup async, ce qui est tiré par les cheveux que je n'ai plus.
+  if (!cocktails) {
+    // fonction anonyme asynchrone (elle pas de nom)
+    // qui s'autoinvoque
+    // cela permet d'effectuer des opérations asynchrones (fetch etc)
+    // sans devoir créer une vraie fonction asynchrone
+    // (qu'on devrait appeler avec un await)
+    (async () => {
+      const coktailsResponse = await fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=");
+      const cocktailsInJs = await coktailsResponse.json();
+      setCocktails(cocktailsInJs.drinks);
+    })();
+  }
 
-
-function AllCocktails() {
-
-    const [cocktails, setCocktails] = useState(null);
-
-    if (!cocktails) {        
-        (async () => {
-            const cocktailsResponse = await fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=");
-            const cocktailsInJs = await cocktailsResponse.json();
-            setCocktails(cocktailsInJs.drinks);
-
-        })();
-    }
-    return (
-        <main>
-            {cocktails ? (
-                <>
-                    <article>Cocktails frais et prêts, on va encore rentrer à 3 grammes YOLO PTDR. CHECK LA LISTE :</article>
-                    {cocktails.map((cocktail) => (
-                        <div key={cocktail.idDrink}>                            
-                            <h2>{cocktail.strDrink}</h2>
-                            <img src={cocktail.strDrinkThumb} />
-                        </div>
-                    ))}
-                </>
-            ) : null}
-        </main>
-    );
+  return (
+    <main>
+      {cocktails ? (
+        <>
+          {cocktails.map((cocktail) => {
+            return (
+              <article>
+                <h2>{cocktail.strDrink}</h2>
+                <img src={cocktail.strDrinkThumb} alt={cocktail.strDrink} />
+                <p>Categorie : {cocktail.strCategory}</p>
+                <p>Instructions : {cocktail.strInstructions}</p>
+              </article>
+            );
+          })}
+        </>
+      ) : (
+        <p>Cocktails en cours de chargement</p>
+      )}
+    </main>
+  );
 }
 
-export default AllCocktails;
+export default CocktailsPage;

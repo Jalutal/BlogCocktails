@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function CocktailsPage() {
   const [cocktails, setCocktails] = useState(null);
@@ -23,10 +24,9 @@ function CocktailsPage() {
           {cocktails.map((cocktail) => {
             return (
               <article>
-                <h2>{cocktail.strDrink}</h2>
-                <img src={cocktail.strDrinkThumb} alt={cocktail.strDrink} />
-                <p>Categorie : {cocktail.strCategory}</p>
-                <p>Instructions : {cocktail.strInstructions}</p>
+                <h2>{cocktail.strDrink}</h2>  
+                <img src={cocktails.strDrinkThumb} alt={cocktails.strDrink} />              
+                <Link to={`/cocktails/details/${cocktail.idDrink}`}>Tu veux les détails ?</Link>
               </article>
             );
           })}

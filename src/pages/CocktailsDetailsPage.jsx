@@ -8,7 +8,7 @@ function CocktailsDetailsPage() {
 
     useEffect(() => {
         (async() => {
-            const cocktailAPIResponse = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`);
+            const cocktailAPIResponse = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=` + id);
             const cocktailAPI = await cocktailAPIResponse.json();
             setCocktails(cocktailAPI.drinks[0]);
         })();

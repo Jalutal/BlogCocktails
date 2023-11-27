@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Header from "../components/Header";
 
 function CocktailsPage() {
   const [cocktails, setCocktails] = useState(null);
@@ -19,6 +20,7 @@ function CocktailsPage() {
 
   return (
     <main>
+      <Header />
       {cocktails ? (
         <>
           {cocktails.map((cocktail) => {

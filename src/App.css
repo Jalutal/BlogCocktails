@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+.header {
+  background-image: url("/src/pages/001.jpg");
+  height: 40vh;
+}
+
+.li {
+  background-color: pink;
+  width: 150px;
+}

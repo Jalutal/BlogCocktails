@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import Header from "../components/Header";
 
 
 function RandomCocktailPage(){
@@ -24,6 +25,7 @@ function RandomCocktailPage(){
 
     return(
         <>
+        <Header />
             {randomCocktail !== null ? (
                 <main>
                     <p>Là, ca va donner. Regarde donc ça :</p>

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Header from "../components/Header";
 
 function IngredientsPage() {
     const [ingredients, setIngredients] = useState(null);
@@ -13,6 +14,7 @@ function IngredientsPage() {
  
     return(
         <div>
+            <Header />
         <h3>Liste des ingrédients</h3>
         {ingredients ? (
             <div>

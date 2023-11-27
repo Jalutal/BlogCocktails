@@ -1,5 +1,7 @@
 import { useState } from "react"
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
+
 
 function RandomCocktailPage(){
 
@@ -29,6 +31,7 @@ function RandomCocktailPage(){
                     <img src={randomCocktail.strDrinkThumb} alt={randomCocktail.strDrink} />
                     <p>{randomCocktail.strInstructions}</p>
                     <p>ouais en anglais. T'as qu'à apprendre.</p>
+                    <Link to={`/cocktails/details/${randomCocktail.idDrink}`}>Matte les détails ici gros.</Link>
                 </main>
             ):(
                 <main>

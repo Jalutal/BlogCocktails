@@ -25,7 +25,7 @@ function CocktailsPage() {
             return (
               <article>
                 <h2>{cocktail.strDrink}</h2>  
-                <img src={cocktails.strDrinkThumb} alt={cocktails.strDrink} />              
+                <img src={cocktail.strDrinkThumb} alt={cocktail.strDrink} />              
                 <Link to={`/cocktails/details/${cocktail.idDrink}`}>Tu veux les détails ?</Link>
               </article>
             );

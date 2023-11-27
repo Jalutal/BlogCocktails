@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function CocktailCard({ cocktailToDisplay }) {
 
     // Déclaration de la fonction qui va gérer la suppression du cocktail en bdd.
-    //Obligatoire de mettre event en paramètre, on lui en passe donc un second.
+    // Obligatoire de mettre event en paramètre, on lui en passe donc un second pour obtenir l'id de ce qu'on veut supprimer.
   const handleDeleteCocktail = async (event, id) => {
 
     // On fait un fetch mais avec une methode DELETE pour effacer ce qui est pointé dans la base (l'ID).

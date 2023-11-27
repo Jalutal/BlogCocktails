@@ -20,7 +20,7 @@ function CocktailsPage() {
   }
 
   return (
-    <main>
+    <main className="fond">
       <Header />
       {cocktails ? (
         <>

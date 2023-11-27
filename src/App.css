@@ -46,3 +46,7 @@
   background-color: pink;
   width: 150px;
 }
+
+.fond {
+  background-image: url("/src/pages/003.jpg");
+}
